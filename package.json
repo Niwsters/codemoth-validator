@@ -1,0 +1,7 @@
+{
+  "name": "codemoth-validator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastian Everett Eriksson",
+  "license": "GPL-3.0"
+}
