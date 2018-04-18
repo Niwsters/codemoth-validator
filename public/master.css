@@ -1,0 +1,7 @@
+.validator {
+  font-family: monospace;
+}
+
+.feedback {
+  white-space: pre-wrap;
+}

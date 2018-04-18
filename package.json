@@ -1,7 +1,32 @@
 {
   "name": "codemoth-validator",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index",
   "author": "Sebastian Everett Eriksson",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "scripts": {
+    "front": "webpack",
+    "back": "concurrently \"nodemon ./index\" \"tsc -w\"",
+    "test": "tape tests/**/*.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "preact": "^8.2.7",
+    "preact-dom": "^1.0.1"
+  },
+  "jshintConfig": {
+    "asi": 1,
+    "esversion": 6
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.5",
+    "browserify": "^16.2.0",
+    "concurrently": "^3.5.1",
+    "tape": "^4.9.0",
+    "ts-loader": "^4.2.0",
+    "typescript": "^2.9.0-dev.20180414",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
+  }
 }
