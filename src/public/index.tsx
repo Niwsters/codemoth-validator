@@ -5,9 +5,14 @@ import { Link } from 'preact-router/match'
 
 const Main = () => (
   <div>
-    <Link activeClassName="active" href="/validator">lolpan</Link>
+    <ul>
+      <li><Link activeClassName="active" href="/helloworld">Problem 1: Hello World</Link></li>
+      <li><Link activeClassName="active" href="/simplegreeting">Problem 2: Simple greeting</Link></li>
+    </ul>
+
     <Router>
-      <Validator path="/validator" />
+      <Validator path="/helloworld" validator="helloworld" title="Hello World" />
+      <Validator path="/simplegreeting" validator="simplegreeting" title="Simple greeting" />
     </Router>
   </div>
 );

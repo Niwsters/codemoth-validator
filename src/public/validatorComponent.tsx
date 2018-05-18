@@ -2,6 +2,8 @@ import { h, Component } from 'preact'
 import axios from 'axios'
 
 interface ValidatorProps {
+  validator: string
+  title: string
 }
 
 interface ValidatorState {
@@ -21,8 +23,9 @@ export default class Validator extends Component<ValidatorProps, ValidatorState>
   }
   
   validate = async function(code) {
+    console.log(this.props.validator)
     try {
-      let res = await axios.post('http://localhost:8080/validate', {code: code})
+      let res = await axios.post('http://localhost:8080/validate', {code: code, validator: this.props.validator})
       this.setFeedback(res.data)
     } catch(e) {
       this.setFeedback(e.message)
@@ -40,11 +43,11 @@ export default class Validator extends Component<ValidatorProps, ValidatorState>
   render() {
     return (
       <div class="validator">
-        <h1>Validator</h1>
+        <h1>{this.props.title}</h1>
         <p>Enter your code here:</p>
         <textarea onInput={this.onCodeChange}></textarea>
         <button onClick={this.onValidateClick}>Validate</button>
-        <p>Get feedback here:</p>
+        <p>Feedback and eventual errors are shown here:</p>
         <div class="feedback">{this.state.feedback}</div>
       </div>
     )

@@ -57,17 +57,20 @@ var Validator = /** @class */ (function (_super) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            _a.trys.push([0, 2, , 3]);
-                            return [4 /*yield*/, axios_1.default.post('http://localhost:8080/validate', { code: code })];
+                            console.log(this.props.validator);
+                            _a.label = 1;
                         case 1:
+                            _a.trys.push([1, 3, , 4]);
+                            return [4 /*yield*/, axios_1.default.post('http://localhost:8080/validate', { code: code, validator: this.props.validator })];
+                        case 2:
                             res = _a.sent();
                             this.setFeedback(res.data);
-                            return [3 /*break*/, 3];
-                        case 2:
+                            return [3 /*break*/, 4];
+                        case 3:
                             e_1 = _a.sent();
                             this.setFeedback(e_1.message);
-                            return [3 /*break*/, 3];
-                        case 3: return [2 /*return*/];
+                            return [3 /*break*/, 4];
+                        case 4: return [2 /*return*/];
                     }
                 });
             });
@@ -87,11 +90,11 @@ var Validator = /** @class */ (function (_super) {
     };
     Validator.prototype.render = function () {
         return (preact_1.h("div", { class: "validator" },
-            preact_1.h("h1", null, "Validator"),
+            preact_1.h("h1", null, this.props.title),
             preact_1.h("p", null, "Enter your code here:"),
             preact_1.h("textarea", { onInput: this.onCodeChange }),
             preact_1.h("button", { onClick: this.onValidateClick }, "Validate"),
-            preact_1.h("p", null, "Get feedback here:"),
+            preact_1.h("p", null, "Feedback and eventual errors are shown here:"),
             preact_1.h("div", { class: "feedback" }, this.state.feedback)));
     };
     return Validator;
