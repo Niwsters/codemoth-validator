@@ -3917,6 +3917,10 @@ preact-dom@^1.0.1:
   dependencies:
     preact "^3.4.0"
 
+preact-router@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/preact-router/-/preact-router-2.6.0.tgz#55f7fbc84e6b8af0df3ea04c8ce4c268714089b6"
+
 preact@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/preact/-/preact-3.4.0.tgz#a52840f9a20d1555b3be7399883ae4b427fd9d2b"
