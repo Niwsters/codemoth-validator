@@ -1,13 +1,22 @@
 // Node.JS virtual machine for running Javascript code safely within Javascript.
 var vm = require('vm');
+var util = require('util');
 exports.validate = function (code) {
     // Prepare a context for the Node.JS virtual machine.
-    var sandbox = {};
+    var sandbox = {
+        output: 'Nothing written to output.',
+        console: {
+            log: function (text) {
+                sandbox.output = text;
+            }
+        }
+    };
     var context = new vm.createContext(sandbox);
     try {
         // Run the code in the virtual machine.
         var script = new vm.Script(code);
         script.runInContext(context);
+        console.log(sandbox.output);
         return 'Your code did not throw an error!';
     }
     catch (e) {
