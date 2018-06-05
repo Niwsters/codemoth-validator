@@ -1,6 +1,5 @@
 // Node.JS virtual machine for running Javascript code safely within Javascript.
 const vm = require('vm')
-const util = require('util')
 
 exports.validate = function (code: string): string {
   // Prepare a context for the Node.JS virtual machine.

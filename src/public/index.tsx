@@ -1,5 +1,5 @@
 import { h, render } from 'preact'
-import Validator from './validatorComponent'
+import Validator from './validator.view'
 import { Router } from 'preact-router'
 import { Link } from 'preact-router/match'
 

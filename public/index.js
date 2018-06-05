@@ -3480,7 +3480,7 @@ process.umask = function() { return 0; };
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
-var validatorComponent_1 = __webpack_require__(/*! ./validatorComponent */ "./src/public/validatorComponent.tsx");
+var validator_view_1 = __webpack_require__(/*! ./validator.view */ "./src/public/validator.view.tsx");
 var preact_router_1 = __webpack_require__(/*! preact-router */ "./node_modules/preact-router/dist/preact-router.es.js");
 var match_1 = __webpack_require__(/*! preact-router/match */ "./node_modules/preact-router/match.js");
 var Main = function () { return (preact_1.h("div", null,
@@ -3490,17 +3490,17 @@ var Main = function () { return (preact_1.h("div", null,
         preact_1.h("li", null,
             preact_1.h(match_1.Link, { activeClassName: "active", href: "/simplegreeting" }, "Problem 2: Simple greeting"))),
     preact_1.h(preact_router_1.Router, null,
-        preact_1.h(validatorComponent_1.default, { path: "/helloworld", validator: "helloworld", title: "Hello World" }),
-        preact_1.h(validatorComponent_1.default, { path: "/simplegreeting", validator: "simplegreeting", title: "Simple greeting" })))); };
+        preact_1.h(validator_view_1.default, { path: "/helloworld", validator: "helloworld", title: "Hello World" }),
+        preact_1.h(validator_view_1.default, { path: "/simplegreeting", validator: "simplegreeting", title: "Simple greeting" })))); };
 preact_1.render(preact_1.h(Main, null), document.body);
 
 
 /***/ }),
 
-/***/ "./src/public/validatorComponent.tsx":
-/*!*******************************************!*\
-  !*** ./src/public/validatorComponent.tsx ***!
-  \*******************************************/
+/***/ "./src/public/validator.view.tsx":
+/*!***************************************!*\
+  !*** ./src/public/validator.view.tsx ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

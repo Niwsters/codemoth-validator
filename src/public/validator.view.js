@@ -100,4 +100,4 @@ var Validator = /** @class */ (function (_super) {
     return Validator;
 }(preact_1.Component));
 exports.default = Validator;
-//# sourceMappingURL=validatorComponent.js.map
+//# sourceMappingURL=validator.view.js.map

@@ -2,7 +2,7 @@ const express = require('express')
 const http = require('http')
 const path = require('path')
 const util = require('util')
-const validator = require('./src/validator')
+const validator = require('./src/validators/validator')
 
 let app = express()
 
