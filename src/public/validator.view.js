@@ -90,7 +90,6 @@ var Validator = /** @class */ (function (_super) {
     };
     Validator.prototype.render = function () {
         return (preact_1.h("div", { class: "validator" },
-            preact_1.h("h1", null, this.props.title),
             preact_1.h("p", null, "Enter your code here:"),
             preact_1.h("textarea", { onInput: this.onCodeChange }),
             preact_1.h("button", { onClick: this.onValidateClick }, "Validate"),

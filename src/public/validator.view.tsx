@@ -3,7 +3,6 @@ import axios from 'axios'
 
 interface ValidatorProps {
   validator: string
-  title: string
 }
 
 interface ValidatorState {
@@ -43,7 +42,6 @@ export default class Validator extends Component<ValidatorProps, ValidatorState>
   render() {
     return (
       <div class="validator">
-        <h1>{this.props.title}</h1>
         <p>Enter your code here:</p>
         <textarea onInput={this.onCodeChange}></textarea>
         <button onClick={this.onValidateClick}>Validate</button>

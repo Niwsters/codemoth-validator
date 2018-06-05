@@ -2,7 +2,7 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var util = require('util');
-var validator = require('./src/validator');
+var validator = require('./src/validators/validator');
 var app = express();
 function sendToFrontend(req, res, next) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
@@ -19,7 +19,8 @@ app.get('/', function (req, res, next) {
 // Validate code that is sent to the validate path
 app.post('/validate', function (req, res, next) {
     var code = req.body.code;
-    var feedback = validator.validate(code);
+    var requestedValidator = req.body.validator;
+    var feedback = validator.validate(code, requestedValidator);
     res.send(feedback);
 });
 app.get('/*', function (req, res, next) {

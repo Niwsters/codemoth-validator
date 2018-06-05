@@ -25,8 +25,9 @@ app.get('/', (req, res, next) => {
 // Validate code that is sent to the validate path
 app.post('/validate', (req, res, next) => {
   let code:string = req.body.code
+	let requestedValidator:string = req.body.validator
 
-  let feedback:string = validator.validate(code)
+  let feedback:string = validator.validate(code, requestedValidator)
 
   res.send(feedback)
 })

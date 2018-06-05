@@ -2,6 +2,7 @@ import { h, render } from 'preact'
 import Validator from './validator.view'
 import { Router } from 'preact-router'
 import { Link } from 'preact-router/match'
+import HelloWorldExercise from './helloWorldExercise.view'
 
 const Main = () => (
   <div>
@@ -11,8 +12,8 @@ const Main = () => (
     </ul>
 
     <Router>
-      <Validator path="/helloworld" validator="helloworld" title="Hello World" />
-      <Validator path="/simplegreeting" validator="simplegreeting" title="Simple greeting" />
+      <HelloWorldExercise path="/helloworld"/>
+      <Validator path="/simplegreeting" validator="simplegreeting" />
     </Router>
   </div>
 );

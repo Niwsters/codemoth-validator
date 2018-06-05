@@ -3469,6 +3469,29 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
+/***/ "./src/public/helloWorldExercise.view.tsx":
+/*!************************************************!*\
+  !*** ./src/public/helloWorldExercise.view.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
+var validator_view_1 = __webpack_require__(/*! ./validator.view */ "./src/public/validator.view.tsx");
+function default_1(props) {
+    return (preact_1.h("div", null,
+        preact_1.h("h1", null, "Hello World"),
+        preact_1.h("p", null, "Write a program in Javascript that writes \"Hello World!\" in console"),
+        preact_1.h(validator_view_1.default, { validator: "helloworld" })));
+}
+exports.default = default_1;
+
+
+/***/ }),
+
 /***/ "./src/public/index.tsx":
 /*!******************************!*\
   !*** ./src/public/index.tsx ***!
@@ -3483,6 +3506,7 @@ var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/pre
 var validator_view_1 = __webpack_require__(/*! ./validator.view */ "./src/public/validator.view.tsx");
 var preact_router_1 = __webpack_require__(/*! preact-router */ "./node_modules/preact-router/dist/preact-router.es.js");
 var match_1 = __webpack_require__(/*! preact-router/match */ "./node_modules/preact-router/match.js");
+var helloWorldExercise_view_1 = __webpack_require__(/*! ./helloWorldExercise.view */ "./src/public/helloWorldExercise.view.tsx");
 var Main = function () { return (preact_1.h("div", null,
     preact_1.h("ul", null,
         preact_1.h("li", null,
@@ -3490,8 +3514,8 @@ var Main = function () { return (preact_1.h("div", null,
         preact_1.h("li", null,
             preact_1.h(match_1.Link, { activeClassName: "active", href: "/simplegreeting" }, "Problem 2: Simple greeting"))),
     preact_1.h(preact_router_1.Router, null,
-        preact_1.h(validator_view_1.default, { path: "/helloworld", validator: "helloworld", title: "Hello World" }),
-        preact_1.h(validator_view_1.default, { path: "/simplegreeting", validator: "simplegreeting", title: "Simple greeting" })))); };
+        preact_1.h(helloWorldExercise_view_1.default, { path: "/helloworld" }),
+        preact_1.h(validator_view_1.default, { path: "/simplegreeting", validator: "simplegreeting" })))); };
 preact_1.render(preact_1.h(Main, null), document.body);
 
 
@@ -3597,7 +3621,6 @@ var Validator = /** @class */ (function (_super) {
     };
     Validator.prototype.render = function () {
         return (preact_1.h("div", { class: "validator" },
-            preact_1.h("h1", null, this.props.title),
             preact_1.h("p", null, "Enter your code here:"),
             preact_1.h("textarea", { onInput: this.onCodeChange }),
             preact_1.h("button", { onClick: this.onValidateClick }, "Validate"),
