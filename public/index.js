@@ -3469,10 +3469,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./src/public/helloWorldExercise.tsx":
-/*!*******************************************!*\
-  !*** ./src/public/helloWorldExercise.tsx ***!
-  \*******************************************/
+/***/ "./src/public/exercises.tsx":
+/*!**********************************!*\
+  !*** ./src/public/exercises.tsx ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3481,13 +3481,38 @@ process.umask = function() { return 0; };
 Object.defineProperty(exports, "__esModule", { value: true });
 var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
 var validator_1 = __webpack_require__(/*! ./validator */ "./src/public/validator.tsx");
-function default_1(props) {
+function Exercise(data) {
     return (preact_1.h("div", null,
-        preact_1.h("h1", null, "Hello World"),
-        preact_1.h("p", null, "Write a program in Javascript that writes \"Hello World!\" in console"),
-        preact_1.h(validator_1.default, { validator: "helloworld" })));
+        preact_1.h("h1", null, data.title),
+        preact_1.h("p", null, data.descr),
+        preact_1.h(validator_1.default, { validator: data.validator })));
 }
-exports.default = default_1;
+function HelloWorld(props) {
+    return Exercise({
+        title: "Hello World",
+        descr: "Write a program in Javascript that writes 'Hello World!' in console",
+        validator: "helloworld"
+    });
+}
+exports.HelloWorld = HelloWorld;
+function SimpleGreeting(props) {
+    return (preact_1.h("div", null,
+        preact_1.h("h1", null, "Simple Greeting"),
+        preact_1.h("p", null, "Write a function that takes a name as input and returns a greeting, like this:"),
+        preact_1.h("p", null, "greeting(\"Sebastian\") --> \"Hello Sebastian!\""),
+        preact_1.h(validator_1.default, { validator: "simplegreeting" })));
+}
+exports.SimpleGreeting = SimpleGreeting;
+function AliceBobGreeting(props) {
+    return (preact_1.h("div", null,
+        preact_1.h("h1", null, "Personalized Greeting"),
+        preact_1.h("p", null, "Rewrite the previous function (from Simple Greeting) so that it greets Alice and Bob, but for other names just writes \"Hello!\". Like this:"),
+        preact_1.h("p", null, "greeting(\"Sebastian\") --> \"Hello!\""),
+        preact_1.h("p", null, "greeting(\"Alice\") --> \"Hello Alice!\""),
+        preact_1.h("p", null, "greeting(\"Bob\") --> \"Hello Bob!\""),
+        preact_1.h(validator_1.default, { validator: "alicebobgreeting" })));
+}
+exports.AliceBobGreeting = AliceBobGreeting;
 
 
 /***/ }),
@@ -3505,42 +3530,31 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
 var preact_router_1 = __webpack_require__(/*! preact-router */ "./node_modules/preact-router/dist/preact-router.es.js");
 var match_1 = __webpack_require__(/*! preact-router/match */ "./node_modules/preact-router/match.js");
-var helloWorldExercise_1 = __webpack_require__(/*! ./helloWorldExercise */ "./src/public/helloWorldExercise.tsx");
-var simpleGreetingExercise_1 = __webpack_require__(/*! ./simpleGreetingExercise */ "./src/public/simpleGreetingExercise.tsx");
+var exercises_1 = __webpack_require__(/*! ./exercises */ "./src/public/exercises.tsx");
+var links = [
+    {
+        href: "/helloworld",
+        text: "Problem 1: Hello World"
+    },
+    {
+        href: "/simplegreeting",
+        text: "Problem 2: Simple Greeting"
+    },
+    {
+        href: "/alicebobgreeting",
+        text: "Problem 3: Personalized Greeting"
+    }
+];
 var Main = function () { return (preact_1.h("div", null,
-    preact_1.h("ul", null,
-        preact_1.h("li", null,
-            preact_1.h(match_1.Link, { activeClassName: "active", href: "/helloworld" }, "Problem 1: Hello World")),
-        preact_1.h("li", null,
-            preact_1.h(match_1.Link, { activeClassName: "active", href: "/simplegreeting" }, "Problem 2: Simple greeting"))),
+    preact_1.h("ul", null, links.map(function (link) {
+        return preact_1.h("li", null,
+            preact_1.h(match_1.Link, { activeClassName: "active", href: link.href }, link.text));
+    })),
     preact_1.h(preact_router_1.Router, null,
-        preact_1.h(helloWorldExercise_1.default, { path: "/helloworld" }),
-        preact_1.h(simpleGreetingExercise_1.default, { path: "/simplegreeting", validator: "simplegreeting" })))); };
+        preact_1.h(exercises_1.HelloWorld, { path: "/helloworld" }),
+        preact_1.h(exercises_1.SimpleGreeting, { path: "/simplegreeting", validator: "simplegreeting" }),
+        preact_1.h(exercises_1.AliceBobGreeting, { path: "/alicebobgreeting", validator: "alicebobgreeting" })))); };
 preact_1.render(preact_1.h(Main, null), document.body);
-
-
-/***/ }),
-
-/***/ "./src/public/simpleGreetingExercise.tsx":
-/*!***********************************************!*\
-  !*** ./src/public/simpleGreetingExercise.tsx ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
-var validator_1 = __webpack_require__(/*! ./validator */ "./src/public/validator.tsx");
-function default_1(props) {
-    return (preact_1.h("div", null,
-        preact_1.h("h1", null, "Simple Greeting"),
-        preact_1.h("p", null, "Write a function that takes a name as input and returns a greeting, like this:"),
-        preact_1.h("p", null, "greeting(\"Sebastian\") --> \"Hello Sebastian!\""),
-        preact_1.h(validator_1.default, { validator: "simplegreeting" })));
-}
-exports.default = default_1;
 
 
 /***/ }),

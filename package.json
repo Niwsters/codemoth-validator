@@ -6,8 +6,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "front": "webpack",
-    "back": "concurrently \"nodemon ./index\" \"tsc -w\"",
-    "dev": "concurrently \"yarn back\" \"yarn front\"",
+    "dev": "concurrently \"nodemon ./index\" \"tsc -w\" \"webpack\"",
     "test": "tape tests/**/*.js"
   },
   "dependencies": {
