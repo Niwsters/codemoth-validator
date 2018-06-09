@@ -1,5 +1,5 @@
 // Node.JS virtual machine for running Javascript code safely within Javascript.
-const basicErrorCheck = require('./basicErrorCheck')
+import runCodeInVM from './runCodeInVM'
 
 let afterExecutionCheck = function(context) {
 	if(context.output === "Hello World!") {
@@ -9,6 +9,6 @@ let afterExecutionCheck = function(context) {
 	}
 }
 
-module.exports = function (code: string): string {
-	return basicErrorCheck(code, afterExecutionCheck)
+export default function (code: string): string {
+	return runCodeInVM(code, afterExecutionCheck)
 }

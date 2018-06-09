@@ -22,7 +22,6 @@ export default class Validator extends Component<ValidatorProps, ValidatorState>
   }
   
   validate = async function(code) {
-    console.log(this.props.validator)
     try {
       let res = await axios.post('http://localhost:8080/validate', {code: code, validator: this.props.validator})
       this.setFeedback(res.data)

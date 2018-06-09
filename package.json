@@ -7,7 +7,7 @@
   "scripts": {
     "front": "webpack",
     "back": "concurrently \"nodemon ./index\" \"tsc -w\"",
-		"dev": "concurrently \"yarn back\" \"yarn front\"",
+    "dev": "concurrently \"yarn back\" \"yarn front\"",
     "test": "tape tests/**/*.js"
   },
   "dependencies": {
@@ -25,6 +25,7 @@
     "@types/node": "^9.6.5",
     "browserify": "^16.2.0",
     "concurrently": "^3.5.1",
+    "nodemon": "^1.17.5",
     "tape": "^4.9.0",
     "ts-loader": "^4.2.0",
     "typescript": "^2.9.0-dev.20180414",

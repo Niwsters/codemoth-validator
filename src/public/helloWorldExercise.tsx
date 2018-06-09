@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-import Validator from './validator.view'
+import Validator from './validator'
 
 export default function (props) {
 	return (

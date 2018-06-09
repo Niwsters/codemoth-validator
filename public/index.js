@@ -3469,10 +3469,10 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ "./src/public/helloWorldExercise.view.tsx":
-/*!************************************************!*\
-  !*** ./src/public/helloWorldExercise.view.tsx ***!
-  \************************************************/
+/***/ "./src/public/helloWorldExercise.tsx":
+/*!*******************************************!*\
+  !*** ./src/public/helloWorldExercise.tsx ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3480,12 +3480,12 @@ process.umask = function() { return 0; };
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
-var validator_view_1 = __webpack_require__(/*! ./validator.view */ "./src/public/validator.view.tsx");
+var validator_1 = __webpack_require__(/*! ./validator */ "./src/public/validator.tsx");
 function default_1(props) {
     return (preact_1.h("div", null,
         preact_1.h("h1", null, "Hello World"),
         preact_1.h("p", null, "Write a program in Javascript that writes \"Hello World!\" in console"),
-        preact_1.h(validator_view_1.default, { validator: "helloworld" })));
+        preact_1.h(validator_1.default, { validator: "helloworld" })));
 }
 exports.default = default_1;
 
@@ -3503,10 +3503,10 @@ exports.default = default_1;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
-var validator_view_1 = __webpack_require__(/*! ./validator.view */ "./src/public/validator.view.tsx");
 var preact_router_1 = __webpack_require__(/*! preact-router */ "./node_modules/preact-router/dist/preact-router.es.js");
 var match_1 = __webpack_require__(/*! preact-router/match */ "./node_modules/preact-router/match.js");
-var helloWorldExercise_view_1 = __webpack_require__(/*! ./helloWorldExercise.view */ "./src/public/helloWorldExercise.view.tsx");
+var helloWorldExercise_1 = __webpack_require__(/*! ./helloWorldExercise */ "./src/public/helloWorldExercise.tsx");
+var simpleGreetingExercise_1 = __webpack_require__(/*! ./simpleGreetingExercise */ "./src/public/simpleGreetingExercise.tsx");
 var Main = function () { return (preact_1.h("div", null,
     preact_1.h("ul", null,
         preact_1.h("li", null,
@@ -3514,17 +3514,41 @@ var Main = function () { return (preact_1.h("div", null,
         preact_1.h("li", null,
             preact_1.h(match_1.Link, { activeClassName: "active", href: "/simplegreeting" }, "Problem 2: Simple greeting"))),
     preact_1.h(preact_router_1.Router, null,
-        preact_1.h(helloWorldExercise_view_1.default, { path: "/helloworld" }),
-        preact_1.h(validator_view_1.default, { path: "/simplegreeting", validator: "simplegreeting" })))); };
+        preact_1.h(helloWorldExercise_1.default, { path: "/helloworld" }),
+        preact_1.h(simpleGreetingExercise_1.default, { path: "/simplegreeting", validator: "simplegreeting" })))); };
 preact_1.render(preact_1.h(Main, null), document.body);
 
 
 /***/ }),
 
-/***/ "./src/public/validator.view.tsx":
-/*!***************************************!*\
-  !*** ./src/public/validator.view.tsx ***!
-  \***************************************/
+/***/ "./src/public/simpleGreetingExercise.tsx":
+/*!***********************************************!*\
+  !*** ./src/public/simpleGreetingExercise.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var preact_1 = __webpack_require__(/*! preact */ "./node_modules/preact/dist/preact.esm.js");
+var validator_1 = __webpack_require__(/*! ./validator */ "./src/public/validator.tsx");
+function default_1(props) {
+    return (preact_1.h("div", null,
+        preact_1.h("h1", null, "Simple Greeting"),
+        preact_1.h("p", null, "Write a function that takes a name as input and returns a greeting, like this:"),
+        preact_1.h("p", null, "greeting(\"Sebastian\") --> \"Hello Sebastian!\""),
+        preact_1.h(validator_1.default, { validator: "simplegreeting" })));
+}
+exports.default = default_1;
+
+
+/***/ }),
+
+/***/ "./src/public/validator.tsx":
+/*!**********************************!*\
+  !*** ./src/public/validator.tsx ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3588,20 +3612,17 @@ var Validator = /** @class */ (function (_super) {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            console.log(this.props.validator);
-                            _a.label = 1;
-                        case 1:
-                            _a.trys.push([1, 3, , 4]);
+                            _a.trys.push([0, 2, , 3]);
                             return [4 /*yield*/, axios_1.default.post('http://localhost:8080/validate', { code: code, validator: this.props.validator })];
-                        case 2:
+                        case 1:
                             res = _a.sent();
                             this.setFeedback(res.data);
-                            return [3 /*break*/, 4];
-                        case 3:
+                            return [3 /*break*/, 3];
+                        case 2:
                             e_1 = _a.sent();
                             this.setFeedback(e_1.message);
-                            return [3 /*break*/, 4];
-                        case 4: return [2 /*return*/];
+                            return [3 /*break*/, 3];
+                        case 3: return [2 /*return*/];
                     }
                 });
             });
